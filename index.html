@@ -450,6 +450,111 @@ a.svc:hover .svc-go,a.svc:focus-visible .svc-go,.post-card:hover .svc-go{opacity
 @keyframes heroIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){.rvl{opacity:1!important;transform:none!important}.hero-copy>*{animation:none}}
 
+/* ===== Cutting-edge pass ===== */
+.search-btn{display:inline-flex;align-items:center;gap:8px;padding:.55em .8em;border:1px solid var(--line);border-radius:var(--r-btn);background:rgba(255,255,255,.6);color:var(--muted);font:500 .88rem var(--f-body);cursor:pointer;transition:border-color .2s,background .2s,color .2s}
+.search-btn:hover{border-color:var(--sage);color:var(--ink);background:#fff}
+.search-btn kbd,.cmdk kbd{font:600 .7rem var(--f-body);padding:2px 6px;border:1px solid var(--line);border-radius:3px;background:var(--paper);color:var(--muted)}
+.scroll-prog{position:absolute;left:0;right:0;bottom:-1px;height:2px;pointer-events:none}
+.scroll-prog i{display:block;height:100%;width:100%;background:linear-gradient(90deg,var(--sage),var(--brass));transform-origin:left;transform:scaleX(var(--sp,0))}
+.site-header{position:sticky}
+/* marquee */
+.marquee{overflow:hidden;border-block:1px solid var(--line);background:var(--card)}
+.mq-track{display:flex;width:max-content;animation:mq 38s linear infinite}
+.marquee:hover .mq-track{animation-play-state:paused}
+.marquee ul{display:flex;gap:56px;padding:20px 28px;margin:0;list-style:none}
+.marquee li{font:500 .82rem/1 var(--f-body);letter-spacing:.16em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:56px;white-space:nowrap}
+.marquee li::after{content:"";width:5px;height:5px;border-radius:50%;background:var(--brass)}
+.marquee li::before{display:none!important}
+@keyframes mq{to{transform:translateX(-50%)}}
+/* headline mask reveal */
+.w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em;margin-bottom:-.08em}
+.w>span{display:inline-block;transform:translateY(105%);animation:wIn .9s var(--ease) forwards;animation-delay:var(--wd,0s)}
+@keyframes wIn{to{transform:none}}
+.hero h1 em.w>span{animation-duration:1.2s}
+/* launch file meter */
+.lf-tab{grid-template-columns:1fr auto;align-items:end}
+.lf-tab small{grid-column:1}
+.lf-count{grid-column:2;grid-row:1/3;font:500 .78rem var(--f-body);font-style:normal;color:#BFD6CD;align-self:center}
+.lf-count b{font:600 1.3rem var(--f-display);color:var(--paper);font-variant-numeric:tabular-nums}
+.lf-meter{grid-column:1/-1;height:3px;border-radius:2px;background:rgba(255,255,255,.14);overflow:hidden;margin-top:8px}
+.lf-meter i{display:block;height:100%;width:100%;background:linear-gradient(90deg,#9EC2B6,var(--brass));transform-origin:left;transform:scaleX(var(--lf,0));transition:transform .5s var(--ease)}
+.lf-n{position:relative;transition:color .3s}
+.lf-list li.done .lf-n{color:transparent}
+.lf-list li.done .lf-n::after{content:"✓";position:absolute;left:0;top:-2px;width:20px;height:20px;border-radius:50%;background:var(--sage-soft);color:var(--ink);font:700 .72rem/20px var(--f-body);text-align:center;animation:pop .45s var(--ease)}
+@keyframes pop{from{transform:scale(.4);opacity:0}to{transform:none;opacity:1}}
+/* spotlight */
+.spot{--mx:50%;--my:50%}
+.spot::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .35s;background:radial-gradient(420px circle at var(--mx) var(--my),rgba(158,194,182,.28),transparent 45%)}
+.spot:hover::after{opacity:1}
+.band-ink.spot::after,.closing.spot::after{background:radial-gradient(640px circle at var(--mx) var(--my),rgba(158,194,182,.14),transparent 50%)}
+.band-ink,.closing,.eng,.who,.post-card,.launch-file,.tm{position:relative}
+/* stage selector */
+.stage{display:grid;gap:28px}
+.stage-tabs{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:var(--r);background:var(--card);padding:6px;box-shadow:var(--sh-1)}
+.stage-tabs button{position:relative;z-index:1;display:grid;gap:2px;justify-items:start;padding:14px 18px;border:0;background:none;border-radius:4px;cursor:pointer;text-align:left;color:var(--muted);transition:color .3s}
+.stage-tabs button b{font:600 1.05rem var(--f-display);color:inherit}
+.stage-tabs button span{font-size:.82rem}
+.stage-tabs button[aria-selected="true"]{color:var(--paper)}
+.stage-tabs button:not([aria-selected="true"]):hover{color:var(--ink)}
+.stage-ink{position:absolute;z-index:0;top:6px;bottom:6px;left:6px;width:calc((100% - 12px)/4);border-radius:4px;background:var(--ink);box-shadow:0 10px 24px -12px rgba(11,58,38,.6);transform:translateX(calc(var(--si,0)*100%));transition:transform .5s var(--ease)}
+.stage-panel{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;padding:36px;border-radius:var(--r);background:var(--card);border:1px solid var(--line);box-shadow:var(--sh-2);animation:spIn .5s var(--ease)}
+@keyframes spIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.sp-copy{display:grid;gap:16px;justify-items:start}
+.sp-who{color:var(--muted)}
+.sp-copy h3{font-size:clamp(1.5rem,2.6vw,2.1rem);font-weight:500}
+.sp-eng{font-size:.95rem;color:var(--muted)}
+.sp-eng b{color:var(--ink)}
+.sp-list{display:grid}
+.sp-list .eyebrow{margin-bottom:8px}
+.sp-row{display:grid;grid-template-columns:40px 1fr auto;gap:12px;align-items:baseline;padding:16px 4px;border-bottom:1px solid var(--line);text-decoration:none;color:var(--text);font:500 1.1rem var(--f-display);transition:padding .25s var(--ease),color .2s,background .2s}
+.sp-row:first-of-type{border-top:1.5px solid var(--ink)}
+.sp-n{font-size:.8rem;color:var(--brass)}
+.sp-arr{color:var(--sage);transition:transform .25s var(--ease)}
+.sp-row:hover{padding-left:12px;color:var(--ink);background:rgba(227,235,230,.5)}
+.sp-row:hover .sp-arr{transform:translateX(6px)}
+@media (max-width:860px){.stage-tabs{grid-template-columns:1fr 1fr}.stage-ink{width:calc((100% - 12px)/2);height:calc((100% - 12px)/2);bottom:auto;transform:translate(calc(var(--sx,0)*100%),calc(var(--sy,0)*100%))}.stage-panel{grid-template-columns:1fr;gap:28px;padding:24px}}
+/* launch path progress */
+.band-ink .steps{position:relative}
+.band-ink .steps::before{content:"";position:absolute;left:0;right:0;top:-2px;height:2px;background:linear-gradient(90deg,#9EC2B6,var(--brass));transform-origin:left;transform:scaleX(var(--p,0));z-index:1}
+.band-ink .step{opacity:.45;transition:opacity .5s,transform .35s var(--ease)}
+.band-ink .step.lit{opacity:1}
+.band-ink .step.lit .step-n{color:#DCEAE4}
+/* magnetic */
+.btn-primary{will-change:transform}
+/* mobile CTA */
+.m-cta{display:none}
+@media (max-width:700px){
+  .m-cta{display:flex;gap:10px;position:fixed;z-index:30;left:0;right:0;bottom:0;padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(12px);border-top:1px solid var(--line);transform:translateY(110%);transition:transform .4s var(--ease)}
+  .m-cta.show{transform:none}
+  .m-cta .btn{flex:1;justify-content:center}
+  .m-cta button{width:48px;border:1px solid var(--line);border-radius:var(--r-btn);background:var(--card);color:var(--ink)}
+  footer{padding-bottom:110px}
+  .search-btn span,.search-btn kbd{display:none}
+}
+/* command palette */
+.cmdk{position:fixed;inset:0;z-index:60;display:grid;justify-items:center;align-items:start;padding:12vh 16px 16px}
+.cmdk-scrim{position:absolute;inset:0;background:rgba(8,46,31,.42);backdrop-filter:blur(6px);animation:fade .25s}
+.cmdk-box{position:relative;width:min(640px,100%);background:var(--card);border-radius:10px;box-shadow:0 40px 100px -30px rgba(8,46,31,.6),0 0 0 1px rgba(11,58,38,.08);overflow:hidden;animation:cmdIn .3s var(--ease)}
+@keyframes cmdIn{from{opacity:0;transform:translateY(-8px) scale(.98)}to{opacity:1;transform:none}}
+@keyframes fade{from{opacity:0}}
+.cmdk-in{display:flex;align-items:center;gap:12px;padding:16px 18px;border-bottom:1px solid var(--line);color:var(--sage)}
+.cmdk-in input{flex:1;min-width:0;border:0;outline:0;background:none;font:400 1.08rem var(--f-body);color:var(--text)}
+#cmdk-list{list-style:none;margin:0;padding:8px;max-height:min(420px,55vh);overflow:auto}
+#cmdk-list li{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;padding:12px 14px;border-radius:6px;cursor:pointer;color:var(--text)}
+#cmdk-list li small{font:600 .68rem var(--f-body);letter-spacing:.12em;text-transform:uppercase;color:var(--brass)}
+#cmdk-list li[aria-selected="true"]{background:var(--ink);color:var(--paper)}
+#cmdk-list li[aria-selected="true"] small{color:#C9DDD5}
+#cmdk-list .empty{color:var(--muted);cursor:default}
+.cmdk-foot{display:flex;gap:18px;padding:10px 18px;border-top:1px solid var(--line);font-size:.76rem;color:var(--muted);background:var(--paper)}
+@media (max-width:560px){.cmdk-foot{display:none}}
+/* view transitions */
+::view-transition-old(root){animation:.28s var(--ease) both vtOut}
+::view-transition-new(root){animation:.45s var(--ease) both vtIn}
+@keyframes vtOut{to{opacity:0;transform:translateY(-10px)}}
+@keyframes vtIn{from{opacity:0;transform:translateY(14px)}}
+.view{animation:none}
+@media (prefers-reduced-motion:reduce){.mq-track{animation:none}.w>span{animation:none;transform:none}.band-ink .step{opacity:1}::view-transition-old(root),::view-transition-new(root){animation:none}}
+
 .view{animation:viewIn .35s ease both}
 @keyframes viewIn{from{opacity:.001;transform:translateY(8px)}to{opacity:1;transform:none}}
 </style>
@@ -464,9 +569,11 @@ a.svc:hover .svc-go,a.svc:focus-visible .svc-go,.post-card:hover .svc-go{opacity
     <button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="nav-links">Menu</button>
     <ul class="nav-links" id="nav-links">
       <li><a href="#services" data-go="services">Services</a></li><li><a href="#approach" data-go="approach">Approach</a></li><li><a href="#adelle" data-go="adelle">Adelle</a></li><li><a href="#blog" data-go="blog">Insights</a></li>
+      <li><button class="search-btn" type="button" data-cmdk aria-label="Search the site"><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m16 16 4.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span>Search</span><kbd>⌘K</kbd></button></li>
       <li><a class="btn btn-primary" href="#contact" data-go="contact">Book a consult</a></li>
     </ul>
   </nav>
+  <div class="scroll-prog" aria-hidden="true"><i></i></div>
 </header>
 <main id="main">
 <div class="view" id="view-home" data-title="GoodForm Consulting" data-nav="home">
@@ -483,7 +590,7 @@ a.svc:hover .svc-go,a.svc:focus-visible .svc-go,.post-card:hover .svc-go{opacity
         <p class="affil">An affiliate of <a class="co-link" href="https://solvhaus.com" target="_blank" rel="noopener">Solvhaus Solutions</a> and <a class="co-link" href="https://karlekreatives.com" target="_blank" rel="noopener">Karle Kreatives</a>.</p>
       </div>
       <aside class="launch-file" aria-label="Typical program launch file">
-        <div class="lf-tab"><span>Program launch file</span><small>Built per state and level of care</small></div>
+        <div class="lf-tab"><span>Program launch file</span><small>Built per state and level of care</small><div class="lf-meter"><i></i></div><em class="lf-count"><b>0</b>/8 ready</em></div>
         <ol class="lf-list">
           <li><span class="lf-n">01</span><span>Entity, ownership &amp; operating agreements</span><span class="lf-tag">Legal</span></li>
           <li><span class="lf-n">02</span><span>Site control, zoning &amp; occupancy</span><span class="lf-tag">Real estate</span></li>
@@ -499,9 +606,26 @@ a.svc:hover .svc-go,a.svc:focus-visible .svc-go,.post-card:hover .svc-go{opacity
     </div>
   </section>
 
-  <div class="scope" aria-label="Practice areas"><div class="wrap"><ul>
-    <li>Licensing</li><li>Accreditation</li><li>Compliance</li><li>HR</li><li>Real estate</li><li>Legal</li><li>Accounting</li><li>Fractional CMO</li>
-  </ul></div></div>
+  <div class="scope marquee" aria-label="Practice areas"><div class="mq-track">
+    <ul><li>Licensing</li><li>Accreditation</li><li>Compliance</li><li>HR &amp; credentialing</li><li>Real estate</li><li>Legal</li><li>Accounting</li><li>Fractional CMO</li></ul>
+    <ul aria-hidden="true"><li>Licensing</li><li>Accreditation</li><li>Compliance</li><li>HR &amp; credentialing</li><li>Real estate</li><li>Legal</li><li>Accounting</li><li>Fractional CMO</li></ul>
+  </div></div>
+
+  <section class="band stage-band">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow" data-n="01">Where are you today?</span><h2>Pick your stage. We'll show you the path.</h2></div>
+      <div class="stage" data-stage>
+        <div class="stage-tabs" role="tablist" aria-label="Your stage">
+          <button role="tab" id="st-idea" aria-selected="true" aria-controls="sp-idea"><b>Idea</b><span>No site yet</span></button>
+          <button role="tab" id="st-site" aria-selected="false" aria-controls="sp-site" tabindex="-1"><b>Site</b><span>Building in view</span></button>
+          <button role="tab" id="st-lic" aria-selected="false" aria-controls="sp-lic" tabindex="-1"><b>Licensed</b><span>Preparing to open</span></button>
+          <button role="tab" id="st-open" aria-selected="false" aria-controls="sp-open" tabindex="-1"><b>Open</b><span>Operating today</span></button>
+          <i class="stage-ink" aria-hidden="true"></i>
+        </div>
+        <div class="stage-panel" role="tabpanel" id="sp-idea" aria-labelledby="st-idea"><div class="sp-copy"><p class="sp-who">You have a level of care in mind, but no site and no entity yet.</p><h3>Start with the plan and the money. Everything else depends on them.</h3><p class="sp-eng">Usually starts as: <b>Program Launch</b></p><a class="btn btn-primary" href="#contact" data-go="contact">Talk to Adelle</a></div><div class="sp-list"><span class="eyebrow">Your path</span><a class="sp-row" href="#svc-launch" data-go="svc-launch"><span class="sp-n">01</span><span>Program launch &amp; licensing</span><span class="sp-arr" aria-hidden="true">→</span></a><a class="sp-row" href="#svc-accounting" data-go="svc-accounting"><span class="sp-n">07</span><span>Accounting &amp; financial setup</span><span class="sp-arr" aria-hidden="true">→</span></a><a class="sp-row" href="#svc-legal" data-go="svc-legal"><span class="sp-n">06</span><span>Legal preparation &amp; review</span><span class="sp-arr" aria-hidden="true">→</span></a></div></div><div class="stage-panel" role="tabpanel" id="sp-site" aria-labelledby="st-site" hidden><div class="sp-copy"><p class="sp-who">You have a building in view and need to know it can be licensed.</p><h3>Check zoning and occupancy before you sign anything.</h3><p class="sp-eng">Usually starts as: <b>Program Launch</b></p><a class="btn btn-primary" href="#contact" data-go="contact">Talk to Adelle</a></div><div class="sp-list"><span class="eyebrow">Your path</span><a class="sp-row" href="#svc-property" data-go="svc-property"><span class="sp-n">05</span><span>Real estate &amp; site strategy</span><span class="sp-arr" aria-hidden="true">→</span></a><a class="sp-row" href="#svc-legal" data-go="svc-legal"><span class="sp-n">06</span><span>Legal preparation &amp; review</span><span class="sp-arr" aria-hidden="true">→</span></a><a class="sp-row" href="#svc-launch" data-go="svc-launch"><span class="sp-n">01</span><span>Program launch &amp; licensing</span><span class="sp-arr" aria-hidden="true">→</span></a></div></div><div class="stage-panel" role="tabpanel" id="sp-lic" aria-labelledby="st-lic" hidden><div class="sp-copy"><p class="sp-who">You are licensed or close, and preparing to open or for accreditation.</p><h3>Build the operation surveyors will look at first.</h3><p class="sp-eng">Usually starts as: <b>Survey Readiness Walkthrough</b></p><a class="btn btn-primary" href="#contact" data-go="contact">Talk to Adelle</a></div><div class="sp-list"><span class="eyebrow">Your path</span><a class="sp-row" href="#svc-accreditation" data-go="svc-accreditation"><span class="sp-n">02</span><span>Joint Commission walkthroughs</span><span class="sp-arr" aria-hidden="true">→</span></a><a class="sp-row" href="#svc-people" data-go="svc-people"><span class="sp-n">04</span><span>HR &amp; credentialing</span><span class="sp-arr" aria-hidden="true">→</span></a><a class="sp-row" href="#svc-compliance" data-go="svc-compliance"><span class="sp-n">03</span><span>Compliance &amp; policy systems</span><span class="sp-arr" aria-hidden="true">→</span></a></div></div><div class="stage-panel" role="tabpanel" id="sp-open" aria-labelledby="st-open" hidden><div class="sp-copy"><p class="sp-who">You are operating and want to grow, or fix what a survey found.</p><h3>Find the gaps, then fill the beds.</h3><p class="sp-eng">Usually starts as: <b>Fractional Leadership</b></p><a class="btn btn-primary" href="#contact" data-go="contact">Talk to Adelle</a></div><div class="sp-list"><span class="eyebrow">Your path</span><a class="sp-row" href="#svc-growth" data-go="svc-growth"><span class="sp-n">08</span><span>Fractional CMO</span><span class="sp-arr" aria-hidden="true">→</span></a><a class="sp-row" href="#svc-compliance" data-go="svc-compliance"><span class="sp-n">03</span><span>Compliance &amp; policy systems</span><span class="sp-arr" aria-hidden="true">→</span></a><a class="sp-row" href="#svc-accounting" data-go="svc-accounting"><span class="sp-n">07</span><span>Accounting &amp; financial setup</span><span class="sp-arr" aria-hidden="true">→</span></a></div></div>
+      </div>
+    </div>
+  </section>
 
   <section class="photo-band"><div class="wrap"><div class="ph-img wide" style="aspect-ratio:12/5"><div class="ph-in"><svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.5" d="M3 8.5A2.5 2.5 0 0 1 5.5 6h2l1.5-2h6l1.5 2h2A2.5 2.5 0 0 1 21 8.5v9a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 17.5z"/><circle cx="12" cy="13" r="3.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><span>[Photo: Program space or Adelle reviewing a launch file with a client. Wide, 2400×1000]</span></div></div></div></section>
 
@@ -518,7 +642,7 @@ a.svc:hover .svc-go,a.svc:focus-visible .svc-go,.post-card:hover .svc-go{opacity
 
   <section class="band band-alt">
     <div class="wrap">
-      <div class="sec-head"><span class="eyebrow" data-n="01">Services</span><h2>The business side of care, handled by one team.</h2>
+      <div class="sec-head"><span class="eyebrow" data-n="02">Services</span><h2>The business side of care, handled by one team.</h2>
         <p class="lede">Most new programs juggle a broker, an attorney, an accountant, an HR firm, a compliance consultant and a marketing agency who never talk to each other. GoodForm brings them under one plan.</p></div>
       <div class="services"><a class="svc" href="#svc-launch" data-go="svc-launch"><span class="svc-k">Launch</span><h3>Program launch &amp; licensing</h3><p>From feasibility to first admission. We build the plan, assemble the application and keep every workstream on schedule.</p><span class="svc-go">View service →</span></a><a class="svc" href="#svc-accreditation" data-go="svc-accreditation"><span class="svc-k">Accreditation</span><h3>Joint Commission walkthroughs</h3><p>A mock survey run the way surveyors run it, with tracers, document review and a clear corrective action plan.</p><span class="svc-go">View service →</span></a><a class="svc" href="#svc-compliance" data-go="svc-compliance"><span class="svc-k">Compliance</span><h3>Compliance &amp; policy systems</h3><p>Policies your staff can actually follow, and the audit trail to prove they do.</p><span class="svc-go">View service →</span></a><a class="svc" href="#svc-people" data-go="svc-people"><span class="svc-k">People</span><h3>HR &amp; credentialing</h3><p>The people infrastructure surveyors look at first and founders build last.</p><span class="svc-go">View service →</span></a><a class="svc" href="#svc-property" data-go="svc-property"><span class="svc-k">Property</span><h3>Real estate &amp; site strategy</h3><p>The right building for the license you need, vetted before you sign, with a licensed California agent on your side.</p><span class="svc-go">View service →</span></a><a class="svc" href="#svc-legal" data-go="svc-legal"><span class="svc-k">Legal</span><h3>Legal preparation &amp; review</h3><p>Adelle prepares documents and does the initial review. Our attorney, Christian Foote, provides legal advice and final sign-off.</p><span class="svc-go">View service →</span></a><a class="svc" href="#svc-accounting" data-go="svc-accounting"><span class="svc-k">Accounting</span><h3>Accounting &amp; financial setup</h3><p>Led by Katherine Mitchell, our Accounting Lead: books, budgets and the financial documents agencies and lenders ask for.</p><span class="svc-go">View service →</span></a><a class="svc" href="#svc-growth" data-go="svc-growth"><span class="svc-k">Growth</span><h3>Fractional CMO</h3><p>Senior marketing leadership without the full-time hire, built for healthcare advertising rules.</p><span class="svc-go">View service →</span></a></div>
       <a class="more" href="#services" data-go="services">All services and ways to engage →</a>
@@ -527,7 +651,7 @@ a.svc:hover .svc-go,a.svc:focus-visible .svc-go,.post-card:hover .svc-go{opacity
 
   <section class="band band-ink">
     <div class="wrap">
-      <div class="sec-head"><span class="eyebrow" data-n="02">Approach</span><h2>The launch path, in the order it has to happen.</h2></div>
+      <div class="sec-head"><span class="eyebrow" data-n="03">Approach</span><h2>The launch path, in the order it has to happen.</h2></div>
       <ol class="steps">
         <li class="step"><span class="step-n">1</span><span class="when">Plan</span><h3>Feasibility &amp; structure</h3><p>Level of care, market, payer mix, budget and entity setup.</p></li>
         <li class="step"><span class="step-n">2</span><span class="when">Secure</span><h3>Site &amp; licensure</h3><p>Zoning, occupancy and buildout, then the state license application.</p></li>
@@ -546,7 +670,7 @@ a.svc:hover .svc-go,a.svc:focus-visible .svc-go,.post-card:hover .svc-go{opacity
         <figcaption><b>Adelle Mutum</b><span>Managing Operator, GoodForm Consulting</span></figcaption>
       </figure>
       <div class="lead-copy">
-        <span class="eyebrow" data-n="03">Meet your operator</span>
+        <span class="eyebrow" data-n="04">Meet your operator</span>
         <h2>Adelle runs every engagement personally.</h2>
         <p><span class="rv">[Adelle to review]</span> "I'm your one point of contact. I know where every piece of your project stands, and I'll tell you plainly what's ready and what isn't."</p>
         <ul class="duties">
@@ -563,7 +687,7 @@ a.svc:hover .svc-go,a.svc:focus-visible .svc-go,.post-card:hover .svc-go{opacity
 
   <section class="band band-alt">
     <div class="wrap">
-      <div class="sec-head"><span class="eyebrow" data-n="04">Insights</span><h2>Notes from the launch file.</h2></div>
+      <div class="sec-head"><span class="eyebrow" data-n="05">Insights</span><h2>Notes from the launch file.</h2></div>
       <div class="post-cards" style="grid-template-columns:repeat(3,1fr)"><a class="post-card" href="#post-launch-order" data-go="post-launch-order"><div class="ph-img cover" style="aspect-ratio:16/10"><div class="ph-in"><svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.5" d="M3 8.5A2.5 2.5 0 0 1 5.5 6h2l1.5-2h6l1.5 2h2A2.5 2.5 0 0 1 21 8.5v9a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 17.5z"/><circle cx="12" cy="13" r="3.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><span>[Photo: Cover image]</span></div></div><div class="post-meta"><span class="cat">Program launch</span><span>October 2026</span><span>7 min read</span></div><h3>The order of operations for opening a behavioral health program</h3><p>Most launch delays come from doing the right things in the wrong order. Here is the sequence that keeps each step from undoing the last.</p></a><a class="post-card" href="#post-mock-survey" data-go="post-mock-survey"><div class="ph-img cover" style="aspect-ratio:16/10"><div class="ph-in"><svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.5" d="M3 8.5A2.5 2.5 0 0 1 5.5 6h2l1.5-2h6l1.5 2h2A2.5 2.5 0 0 1 21 8.5v9a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 17.5z"/><circle cx="12" cy="13" r="3.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><span>[Photo: Cover image]</span></div></div><div class="post-meta"><span class="cat">Accreditation</span><span>October 2026</span><span>6 min read</span></div><h3>What a Joint Commission mock survey actually tests</h3><p>A good mock survey is not a checklist review. It follows patients and staff through your program the way surveyors do.</p></a><a class="post-card" href="#post-zoning-before-lease" data-go="post-zoning-before-lease"><div class="ph-img cover" style="aspect-ratio:16/10"><div class="ph-in"><svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.5" d="M3 8.5A2.5 2.5 0 0 1 5.5 6h2l1.5-2h6l1.5 2h2A2.5 2.5 0 0 1 21 8.5v9a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 17.5z"/><circle cx="12" cy="13" r="3.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><span>[Photo: Cover image]</span></div></div><div class="post-meta"><span class="cat">Real estate</span><span>October 2026</span><span>5 min read</span></div><h3>Check zoning and occupancy before you sign the lease</h3><p>The most expensive launch mistake is a signed lease on a building that cannot be licensed for your use.</p></a></div>
       <a class="more" href="#blog" data-go="blog">All insights →</a>
     </div>
@@ -571,7 +695,7 @@ a.svc:hover .svc-go,a.svc:focus-visible .svc-go,.post-card:hover .svc-go{opacity
 
   <section class="band closing">
     <div class="wrap">
-      <div class="cl-copy"><span class="eyebrow" data-n="05">Start here</span><h2>Tell Adelle what you're building.</h2>
+      <div class="cl-copy"><span class="eyebrow" data-n="06">Start here</span><h2>Tell Adelle what you're building.</h2>
         <p>A first consult is a working conversation: where you are, what is blocking you, and what the next 90 days should look like.</p></div>
       <div class="cl-act"><a class="btn btn-primary" href="#contact" data-go="contact">Book a consult</a><p class="small">Or email <span class="ph">[email address]</span></p></div>
     </div>
@@ -668,7 +792,7 @@ a.svc:hover .svc-go,a.svc:focus-visible .svc-go,.post-card:hover .svc-go{opacity
         <div class="ph-img " style="aspect-ratio:4/3"><div class="ph-in"><svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.5" d="M3 8.5A2.5 2.5 0 0 1 5.5 6h2l1.5-2h6l1.5 2h2A2.5 2.5 0 0 1 21 8.5v9a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 17.5z"/><circle cx="12" cy="13" r="3.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><span>[Photo: Working session with the launch file on the table]</span></div></div>
       </div>
       <aside class="launch-file" aria-label="Typical program launch file">
-        <div class="lf-tab"><span>Program launch file</span><small>Built per state and level of care</small></div>
+        <div class="lf-tab"><span>Program launch file</span><small>Built per state and level of care</small><div class="lf-meter"><i></i></div><em class="lf-count"><b>0</b>/8 ready</em></div>
         <ol class="lf-list">
           <li><span class="lf-n">01</span><span>Entity, ownership &amp; operating agreements</span><span class="lf-tag">Legal</span></li>
           <li><span class="lf-n">02</span><span>Site control, zoning &amp; occupancy</span><span class="lf-tag">Real estate</span></li>
@@ -1411,6 +1535,12 @@ a.svc:hover .svc-go,a.svc:focus-visible .svc-go,.post-card:hover .svc-go{opacity
     </div>
   </div>
 </footer>
+<div class="m-cta" aria-hidden="false"><button type="button" data-cmdk aria-label="Search the site"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m16 16 4.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button><a class="btn btn-primary" href="#contact" data-go="contact">Book a consult</a></div>
+<div class="cmdk" id="cmdk" hidden><div class="cmdk-scrim" data-close></div><div class="cmdk-box" role="dialog" aria-modal="true" aria-label="Search the site">
+  <div class="cmdk-in"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m16 16 4.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><input id="cmdk-q" type="text" placeholder="Search services, pages and insights" autocomplete="off" aria-controls="cmdk-list"><kbd>Esc</kbd></div>
+  <ul id="cmdk-list" role="listbox" aria-label="Results"></ul>
+  <div class="cmdk-foot"><span>↑ ↓ to move</span><span>Enter to open</span><span>Esc to close</span></div>
+</div></div>
 <script>
 (function(){
   var btn=document.getElementById('menu-btn'), links=document.getElementById('nav-links');
@@ -1462,7 +1592,12 @@ a.svc:hover .svc-go,a.svc:focus-visible .svc-go,.post-card:hover .svc-go{opacity
     });
   }
   var _show=show;
-  show=function(n,p){_show(n,p);var v=document.querySelector('.view:not([hidden])');requestAnimationFrame(function(){arm(v)});};
+  var booted=false;
+  show=function(n,p){
+    function run(){_show(n,p);var v=document.querySelector('.view:not([hidden])');v.querySelectorAll('.hero h1, .page-hero h1, .article-head h1').forEach(split);requestAnimationFrame(function(){arm(v);runLF(v);onScroll();});}
+    if(booted && document.startViewTransition && !reduce){document.startViewTransition(run);} else run();
+    booted=true;
+  };
   var hdr=document.querySelector('.site-header'), lf=null, ticking=false;
   addEventListener('scroll',function(){
     if(ticking) return; ticking=true;
@@ -1477,6 +1612,116 @@ a.svc:hover .svc-go,a.svc:focus-visible .svc-go,.post-card:hover .svc-go{opacity
       v.querySelectorAll('.portrait').forEach(function(el){var r=el.getBoundingClientRect();var o=(r.top+r.height/2-innerHeight/2)*-0.04;el.style.transform='translateY('+o+'px)'});
     });
   },{passive:true});
+
+  /* ===== Cutting-edge interactions ===== */
+  var fine=matchMedia('(pointer:fine)').matches;
+  // headline word reveal
+  function split(h){
+    if(!h||h.dataset.split) return; h.dataset.split=1; var k=0;
+    [].slice.call(h.childNodes).forEach(function(n){
+      if(n.nodeType===3){
+        var frag=document.createDocumentFragment();
+        n.textContent.split(/(\s+)/).forEach(function(t){
+          if(!t) return;
+          if(/^\s+$/.test(t)){frag.appendChild(document.createTextNode(t));return;}
+          var w=document.createElement('span');w.className='w';var i=document.createElement('span');i.textContent=t;i.style.setProperty('--wd',(k++*0.06)+'s');w.appendChild(i);frag.appendChild(w);
+        });
+        h.replaceChild(frag,n);
+      } else if(n.nodeType===1){
+        var inner=document.createElement('span');inner.innerHTML=n.innerHTML;inner.style.setProperty('--wd',(k++*0.06+0.15)+'s');n.innerHTML='';n.classList.add('w');n.appendChild(inner);
+      }
+    });
+  }
+  // launch file check-off
+  function runLF(view){
+    view.querySelectorAll('.launch-file').forEach(function(lf){
+      if(lf.dataset.run) return; lf.dataset.run=1;
+      var rows=lf.querySelectorAll('.lf-list li'), cnt=lf.querySelector('.lf-count b'), tab=lf.querySelector('.lf-tab'), n=0;
+      function step(){ if(n>=rows.length) return; rows[n].classList.add('done'); n++; if(cnt) cnt.textContent=n; tab.style.setProperty('--lf',n/rows.length); setTimeout(step,420); }
+      if(reduce){rows.forEach(function(r){r.classList.add('done')}); if(cnt) cnt.textContent=rows.length; tab.style.setProperty('--lf',1); return;}
+      setTimeout(step,900);
+    });
+  }
+  // stage selector
+  document.querySelectorAll('[data-stage]').forEach(function(st){
+    var tabs=[].slice.call(st.querySelectorAll('[role=tab]')), ink=st.querySelector('.stage-tabs');
+    function sel(i,focus){
+      tabs.forEach(function(t,j){var on=j===i;t.setAttribute('aria-selected',on);t.tabIndex=on?0:-1;document.getElementById(t.getAttribute('aria-controls')).hidden=!on;});
+      ink.style.setProperty('--si',i); ink.style.setProperty('--sx',i%2); ink.style.setProperty('--sy',Math.floor(i/2));
+      if(focus) tabs[i].focus();
+    }
+    tabs.forEach(function(t,i){
+      t.addEventListener('click',function(){sel(i)});
+      t.addEventListener('keydown',function(e){var d=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;if(d){e.preventDefault();sel((i+d+tabs.length)%tabs.length,true);}});
+    });
+  });
+  // spotlight
+  if(fine){
+    document.addEventListener('pointermove',function(e){
+      var el=e.target.closest&&e.target.closest('.svc,.eng,.who,.post-card,.launch-file,.tm,.band-ink,.closing,.stage-panel');
+      if(!el) return; el.classList.add('spot'); var r=el.getBoundingClientRect();
+      el.style.setProperty('--mx',(e.clientX-r.left)+'px'); el.style.setProperty('--my',(e.clientY-r.top)+'px');
+    },{passive:true});
+    // magnetic primary buttons
+    document.addEventListener('pointermove',function(e){
+      var b=e.target.closest&&e.target.closest('.btn-primary'); if(!b||reduce) return;
+      var r=b.getBoundingClientRect(), x=(e.clientX-r.left-r.width/2)/r.width, y=(e.clientY-r.top-r.height/2)/r.height;
+      b.style.transform='translate('+(x*8)+'px,'+(y*6-2)+'px)';
+    },{passive:true});
+    document.addEventListener('pointerout',function(e){var b=e.target.closest&&e.target.closest('.btn-primary'); if(b&&!b.contains(e.relatedTarget)) b.style.transform='';});
+  }
+  // scroll-driven: progress bar, launch path, mobile CTA
+  var mcta=document.querySelector('.m-cta');
+  function onScroll(){
+    var max=document.documentElement.scrollHeight-innerHeight;
+    hdr.style.setProperty('--sp',max>0?Math.min(1,scrollY/max):0);
+    var v=document.querySelector('.view:not([hidden])'); if(!v) return;
+    v.querySelectorAll('.band-ink .steps').forEach(function(ol){
+      var r=ol.getBoundingClientRect(), p=Math.max(0,Math.min(1,(innerHeight*0.85-r.top)/(innerHeight*0.6)));
+      if(reduce) p=1;
+      ol.style.setProperty('--p',p);
+      var st=ol.querySelectorAll('.step'); st.forEach(function(s,i){s.classList.toggle('lit',p>=(i+0.5)/st.length||p>=0.999)});
+    });
+    if(mcta) mcta.classList.toggle('show',scrollY>innerHeight*0.6 && v.id!=='view-contact');
+  }
+  addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll);
+  // command palette
+  var cmdk=document.getElementById('cmdk'), q=document.getElementById('cmdk-q'), list=document.getElementById('cmdk-list'), items=[], cur=0, lastFocus=null;
+  [].forEach.call(document.querySelectorAll('.view'),function(v){
+    var id=v.id.replace('view-',''), g=id.indexOf('svc-')===0?'Service':id.indexOf('post-')===0?'Insight':'Page';
+    var t=v.getAttribute('data-title').replace(' · GoodForm','').replace('GoodForm ','');
+    if(id==='home') t='Home';
+    var txt=[].map.call(v.querySelectorAll('.lede, .dek, .inc li, .prose h2'),function(x){return x.textContent}).join(' ');
+    items.push({id:id,t:t,g:g,k:(t+' '+g+' '+txt).toLowerCase()});
+  });
+  function render(){
+    var term=q.value.trim().toLowerCase(), words=term.split(/\s+/).filter(Boolean);
+    var res=items.filter(function(it){return words.every(function(w){return it.k.indexOf(w)>-1})});
+    function sc(it){var t=it.t.toLowerCase();return (t.indexOf(term)===0?3:0)+(words.every(function(w){return t.indexOf(w)>-1})?2:0);}
+    res.sort(function(a,b){var o={Service:0,Page:1,Insight:2};return (term?sc(b)-sc(a):0)||o[a.g]-o[b.g]});
+    cur=0; list.innerHTML='';
+    if(!res.length){list.innerHTML='<li class="empty">No matches. Try "licensing", "zoning" or "survey".</li>';return;}
+    res.forEach(function(it,i){var li=document.createElement('li');li.setAttribute('role','option');li.dataset.go=it.id;li.innerHTML='<span></span><small></small>';li.firstChild.textContent=it.t;li.lastChild.textContent=it.g;if(i===0)li.setAttribute('aria-selected','true');list.appendChild(li);});
+  }
+  function move(d){var o=list.querySelectorAll('[role=option]');if(!o.length)return;o[cur].removeAttribute('aria-selected');cur=(cur+d+o.length)%o.length;o[cur].setAttribute('aria-selected','true');o[cur].scrollIntoView({block:'nearest'});}
+  function openK(){lastFocus=document.activeElement;cmdk.hidden=false;q.value='';render();setTimeout(function(){q.focus()},10);}
+  function closeK(){cmdk.hidden=true;if(lastFocus)lastFocus.focus();}
+  function goK(id){closeK();show(id,true);}
+  document.addEventListener('click',function(e){
+    if(e.target.closest('[data-cmdk]')){e.preventDefault();openK();return;}
+    if(e.target.closest('[data-close]')){closeK();return;}
+    var li=e.target.closest('#cmdk-list [role=option]'); if(li) goK(li.dataset.go);
+  });
+  q.addEventListener('input',render);
+  document.addEventListener('keydown',function(e){
+    if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){e.preventDefault();cmdk.hidden?openK():closeK();return;}
+    if(e.key==='/'&&cmdk.hidden&&!/input|textarea/i.test(document.activeElement.tagName)){e.preventDefault();openK();return;}
+    if(cmdk.hidden) return;
+    if(e.key==='Escape'){closeK();}
+    else if(e.key==='ArrowDown'){e.preventDefault();move(1);}
+    else if(e.key==='ArrowUp'){e.preventDefault();move(-1);}
+    else if(e.key==='Enter'){var o=list.querySelector('[aria-selected=true]');if(o)goK(o.dataset.go);}
+  });
   var start=(location.hash||'').slice(1);
   show(start||'home', false);
 })();
